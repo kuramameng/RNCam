@@ -1,3 +1,4 @@
+'use strict';
 import React, { Component } from 'react';
 import { CardSection, Button } from './common';
 import { StyleSheet, View, Text } from 'react-native';
