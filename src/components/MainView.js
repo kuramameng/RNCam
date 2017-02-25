@@ -1,7 +1,7 @@
 'use strict';
 import React, { Component } from 'react';
 import { CardSection, Button } from './common';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, Text } from 'react-native';
 import Camera from 'react-native-camera';
 
 class MainView extends Component {
@@ -27,11 +27,19 @@ class MainView extends Component {
         </CardSection>
         <CardSection style={toolbarMenu}>
           <Button style={filtersButton}>Filters</Button>
-          <Button style={snapButton}>Snap</Button>
+          <View>
+            <Text style={styles.snapButton} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+          </View>
           <Button style={albumButton}>Album</Button>
         </CardSection>
       </View>
     )
+  }
+
+  takePicture() {
+    this.camera.capture()
+      .then((data) => console.log(data))
+      .catch(err => console.error(err));
   }
 }
 
@@ -55,7 +63,12 @@ const styles = {
     flex: 3
   },
   snapButton: {
-    flex: 3
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    color: '#000',
+    padding: 10,
+    margin: 40
   },
   albumButton: {
     flex: 3
