@@ -8,8 +8,10 @@ class MainView extends Component {
   render(){
     const {
       previewWindow,
+      preview,
       toolbarMenu,
       filtersButton,
+      capture,
       snapButton,
       albumButton
     } = styles;
@@ -21,14 +23,14 @@ class MainView extends Component {
             ref={(cam) => {
               this.camera = cam;
             }}
-            style={styles.preview}
+            style={preview}
             aspect={Camera.constants.Aspect.fill}>
           </Camera>
         </CardSection>
         <CardSection style={toolbarMenu}>
           <Button style={filtersButton}>Filters</Button>
           <View>
-            <Text style={styles.snapButton} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+            <Text style={capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
           </View>
           <Button style={albumButton}>Album</Button>
         </CardSection>
@@ -62,7 +64,7 @@ const styles = {
   filtersButton: {
     flex: 3
   },
-  snapButton: {
+  capture: {
     flex: 0,
     backgroundColor: '#fff',
     borderRadius: 5,
