@@ -24,6 +24,7 @@ class MainView extends Component {
               this.camera = cam;
             }}
             style={preview}
+            onBarCodeRead={this._onBarCodeRead}
             aspect={Camera.constants.Aspect.fill}>
           </Camera>
         </CardSection>
@@ -34,6 +35,10 @@ class MainView extends Component {
         </CardSection>
       </View>
     )
+  }
+
+  _onBarCodeRead(e){
+    console.log("Type: " + e.type + "\nData: " + e.data);
   }
 
   takePicture() {
