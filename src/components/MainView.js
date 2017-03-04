@@ -1,7 +1,7 @@
 'use strict';
 import React, { Component } from 'react';
 import { CardSection, Button } from './common';
-import { View, Dimensions, Text } from 'react-native';
+import { View, Dimensions, Text, TouchableHighlight } from 'react-native';
 import Camera from 'react-native-camera';
 
 class MainView extends Component {
@@ -29,9 +29,7 @@ class MainView extends Component {
         </CardSection>
         <CardSection style={toolbarMenu}>
           <Button style={filtersButton}>Filters</Button>
-          <View>
-            <Text style={capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-          </View>
+          <Button style={capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Button>
           <Button style={albumButton}>Album</Button>
         </CardSection>
       </View>
